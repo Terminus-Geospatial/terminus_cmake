@@ -13,7 +13,7 @@
 #    Date:    7/5/2023
 #
 #    Purpose:  Tie in all utility scripts
-cmake_minimum_required( VERSION 3.15 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
 
 message( STATUS "Loading Terminus CMake - All" )
 

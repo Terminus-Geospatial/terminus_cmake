@@ -13,7 +13,7 @@
 #    Date:    7/5/2023
 #
 #    Purpose: Provide color info
-cmake_minimum_required( VERSION 3.15 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
 
 #These variables allow you to use colors on unix based systems
 #Example:

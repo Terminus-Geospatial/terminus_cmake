@@ -13,7 +13,7 @@ from conan.tools.cmake import CMake, CMakeToolchain, CMakeDeps
 class CMakeConan(ConanFile):
 
     name = "terminus_cmake"
-    version = "1.0.6"
+    version = "1.0.7"
 
     license = "Terminus Proprietary"
     author = "Marvin Smith <marvin_smith1@me.com>"
@@ -28,7 +28,7 @@ class CMakeConan(ConanFile):
     settings = "os", "compiler", "build_type", "arch"
 
     def build_requirements(self):
-        self.build_requires("cmake/4.0.1")
+        self.build_requires("cmake/4.1.2")
 
     def _configure_cmake(self):
         cmake = CMake(self)
@@ -53,7 +53,7 @@ class CMakeConan(ConanFile):
         cmake.build()
 
     def package(self):
-        cmake = self._configure_cmake()
+        cmake = CMake(self)
         cmake.install()
 
     def package_info(self):

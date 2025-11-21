@@ -12,7 +12,9 @@
 #    Author:  Marvin Smith
 #    Date:    7/6/2023
 #
-cmake_minimum_required(VERSION 3.16.4)
+cmake_minimum_required(VERSION 4.0.0)
+
+include_guard()
 
 message(STATUS "Loading Terminus CMake - Libs")
 

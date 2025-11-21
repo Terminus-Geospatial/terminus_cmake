@@ -12,7 +12,7 @@
 #    Author:  Marvin Smith
 #    Date:    7/6/2023
 #
-cmake_minimum_required( VERSION 3.15 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
 
 include_guard()
 

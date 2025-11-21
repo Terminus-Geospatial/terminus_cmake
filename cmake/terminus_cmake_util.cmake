@@ -14,7 +14,7 @@
 #
 #    Purpose:  Utilities for handing CMake calls more elegantly
 #
-cmake_minimum_required( VERSION 3.15 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
 
 include_guard()
 
@@ -42,7 +42,7 @@ macro( terminus_util_get_all_targets_impl _TARGETS _CURRENT_DIR )
         terminus_util_get_all_targets_impl( ${_TARGETS} ${_SUBDIR} )
     endforeach()
 
-    get_property( _CURRENT_TARGETS_DIRECTORY ${_CURRENT_DIR} PROPERTY BUILDSYSTEM_TARGETS )
+    get_property( _CURRENT_TARGETS ${_CURRENT_DIR} PROPERTY BUILDSYSTEM_TARGETS )
     list( APPEND ${_TARGETS} ${_CURRENT_TARGETS} )
 endmacro()
 

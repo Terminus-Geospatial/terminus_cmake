@@ -13,15 +13,38 @@
 #    Date:    7/5/2023
 #
 #    Purpose:  Create CMake settings automatically
-cmake_minimum_required( VERSION 3.15 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
+
+include_guard()
 
 message( STATUS "Loading Terminus CMake - Project Init" )
 
 #  Terminus C++ Warning Flags
 #
-#  General C++ Warning Flags
-set( TERMINUS_CXX_WARNING_FLAGS -Wall -Wextra )
+#  Provide escalating compiler-warning presets that always treat warnings as errors.
+set( TERMINUS_CXX_FLAGS_LOW
+    -Wall
+    -Wextra
+    -Werror
+)
 
-#  Terminus CXX Flags
-set( TERMINUS_CXX_FLAGS ${TERMINUS_CXX_WARNING_FLAGS} )
+set( TERMINUS_CXX_FLAGS_MEDIUM
+    ${TERMINUS_CXX_FLAGS_LOW}
+    -Wconversion
+    -Wpedantic
+)
+
+set( TERMINUS_CXX_FLAGS_HIGH
+    ${TERMINUS_CXX_FLAGS_MEDIUM}
+    -Wdouble-promotion
+    -Wshadow
+    -Wundef
+)
+
+#  Legacy aggregate for consumers expecting a single warning list
+set( TERMINUS_CXX_WARNING_FLAGS ${TERMINUS_CXX_FLAGS_LOW} )
+
+if( NOT DEFINED TERMINUS_CXX_FLAGS )
+    set( TERMINUS_CXX_FLAGS ${TERMINUS_CXX_FLAGS_HIGH} )
+endif()
 

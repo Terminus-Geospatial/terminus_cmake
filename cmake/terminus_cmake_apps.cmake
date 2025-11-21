@@ -13,7 +13,9 @@
 #    Date:    7/6/2023
 #
 #    Purpose:  CMake scripts for applications
-cmake_minimum_required( VERSION 3.15 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
+
+include_guard()
 
 message( STATUS "Loading Terminus CMake - Apps" )
 

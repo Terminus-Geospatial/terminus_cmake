@@ -11,7 +11,7 @@
 #    Author:  Marvin Smith
 #    Date:    7/5/2023
 #
-cmake_minimum_required( VERSION 3.16 FATAL_ERROR )
+cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
 
 # Set the Project-Name
 project( ${CONAN_PKG_NAME}
@@ -21,7 +21,7 @@ project( ${CONAN_PKG_NAME}
          LANGUAGES CXX
 )
 
-#  Set C++ 23 Support
+#  Set C++ Standard
 set( CMAKE_CXX_STANDARD 23 )
 set( CMAKE_CXX_STANDARD_REQUIRED ON )
 

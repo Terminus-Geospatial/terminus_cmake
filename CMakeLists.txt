@@ -14,7 +14,7 @@
 cmake_minimum_required( VERSION 4.0.0 FATAL_ERROR )
 
 # Set the Project-Name
-project( ${CONAN_PKG_NAME}
+project( terminus_cmake
          VERSION ${CONAN_PKG_VERSION}
          HOMEPAGE_URL ${CONAN_PKG_URL}
          DESCRIPTION ${CONAN_PKG_DESCRIPTION}

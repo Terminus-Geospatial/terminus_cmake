@@ -109,13 +109,18 @@ function( terminus_lib_configure TARGET )
 
     # Configure include directory install locations. This also determines which header
     # files to include/omit based on feature-flags.
-    if(NOT EXISTS "${PROJECT_SOURCE_DIR}/include")
+    set(_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
+    if(NOT EXISTS "${_INCLUDE_DIR}")
+        set(_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/library/include")
+    endif()
+
+    if(NOT EXISTS "${_INCLUDE_DIR}")
         message(FATAL_ERROR "No header files will be installed with this library (missing 'include' "
-                            "directory in project source root)"
+                            "directory in project source root or library/include)"
         )
     else()
-        file(GLOB_RECURSE _HEADERS_TO_INSTALL RELATIVE "${PROJECT_SOURCE_DIR}/include"
-            "${PROJECT_SOURCE_DIR}/include/*"
+        file(GLOB_RECURSE _HEADERS_TO_INSTALL RELATIVE "${_INCLUDE_DIR}"
+            "${_INCLUDE_DIR}/*"
         )
         set(_PAIR_START TRUE)
         foreach(_ELEMENT IN LISTS _TERMINUS_LIB_CONFIGURE_FEATURE_HEADERS)
@@ -132,7 +137,7 @@ function( terminus_lib_configure TARGET )
         endforeach()
         foreach(_H IN LISTS _HEADERS_TO_INSTALL)
             get_filename_component(_DIR "${_H}" DIRECTORY)
-            install(FILES "${PROJECT_SOURCE_DIR}/include/${_H}" DESTINATION "include/${_DIR}")
+            install(FILES "${_INCLUDE_DIR}/${_H}" DESTINATION "include/${_DIR}")
         endforeach()
     endif()
 

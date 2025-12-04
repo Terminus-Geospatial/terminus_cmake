@@ -24,8 +24,15 @@ message( STATUS "Loading Terminus CMake - Apps" )
 #   Set target props for applications
 function( terminus_app_configure TARGET )
 
+    # Use platform-appropriate RPATH tokens
+    if( APPLE )
+        set( RPATH_TOKEN "@loader_path/../lib" )
+    else()
+        set( RPATH_TOKEN "\$ORIGIN/../lib" )
+    endif()
+
     set_target_properties( ${TARGET} PROPERTIES
-        INSTALL_RPATH "\$ORIGIN/../lib"
+        INSTALL_RPATH "${RPATH_TOKEN}"
         RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin"
     )
 

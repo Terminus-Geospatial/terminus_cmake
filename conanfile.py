@@ -13,7 +13,7 @@ from conan.tools.cmake import CMake, CMakeDeps, CMakeToolchain, cmake_layout
 class CMakeConan(ConanFile):
 
     name = "terminus_cmake"
-    version = "1.0.8"
+    version = "1.0.9"
 
     exports_sources = (
         "CMakeLists.txt",

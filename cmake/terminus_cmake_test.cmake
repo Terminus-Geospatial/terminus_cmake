@@ -91,6 +91,9 @@ function(terminus_test_add_unit SUFFIX FILE)
         ${_TERMINUS_TEST_TARGET}
     )
 
+    # Apply application configuration for proper RPATH
+    terminus_app_configure(${_TEST})
+
     # Gather the tests
     gtest_discover_tests(${_TEST})
 endfunction()
